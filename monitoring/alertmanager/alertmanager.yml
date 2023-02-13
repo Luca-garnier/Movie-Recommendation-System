@@ -1,0 +1,15 @@
+
+global:
+  # Also possible to place this URL in a file.
+  # Ex: `slack_api_url_file: '/etc/alertmanager/slack_url'`
+  slack_api_url: 'https://hooks.slack.com/services/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'
+
+route:
+  receiver: 'slack-notifications'
+  group_by: [alertname, datacenter, app]
+
+receivers:
+- name: 'slack-notifications'
+  slack_configs:
+  - channel: 'alerts'
+    text: "<!channel> \nsummary: {{ .CommonAnnotations.summary }}\ndescription: {{ .CommonAnnotations.description }}"

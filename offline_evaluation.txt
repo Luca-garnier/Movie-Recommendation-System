@@ -1,0 +1,33 @@
+--------------------------------------------------------------------
+2021-11-20 04:38:58.451622
+--------------------------------------------------------------------
+At 10-recall is 0.02629033953537265, Average evaluation time is 0.5365ms
+At 20-recall is 0.04569273625565016, Average evaluation time is 0.5365ms
+At 30-recall is 0.057116577315252805, Average evaluation time is 0.5365ms
+At 40-recall is 0.06849311468516767, Average evaluation time is 0.5365ms
+At 50-recall is 0.08102070850415222, Average evaluation time is 0.5365ms
+At 60-recall is 0.08805713234521181, Average evaluation time is 0.5365ms
+At 70-recall is 0.1033441080626511, Average evaluation time is 0.5365ms
+At 80-recall is 0.11526857983811625, Average evaluation time is 0.5365ms
+At 90-recall is 0.1317972774098602, Average evaluation time is 0.5365ms
+At 100-recall is 0.13765110900872488, Average evaluation time is 0.5365ms
+At 10-recall for the male population is 0.02807766872652369
+At 20-recall for the male population is 0.04217254331758149
+At 30-recall for the male population is 0.05438628377559674
+At 40-recall for the male population is 0.06578213982794136
+At 50-recall for the male population is 0.07640554949715254
+At 60-recall for the male population is 0.0845162365200533
+At 70-recall for the male population is 0.09768417545135102
+At 80-recall for the male population is 0.10824851569126379
+At 90-recall for the male population is 0.12539228159457166
+At 100-recall for the male population is 0.131503695625833
+At 10-recall for the female population is 0.014583333333333332
+At 20-recall for the female population is 0.06875
+At 30-recall for the female population is 0.075
+At 40-recall for the female population is 0.08625000000000001
+At 50-recall for the female population is 0.11125
+At 60-recall for the female population is 0.11125
+At 70-recall for the female population is 0.1404166666666667
+At 80-recall for the female population is 0.16125
+At 90-recall for the female population is 0.17375000000000002
+At 100-recall for the female population is 0.17791666666666667

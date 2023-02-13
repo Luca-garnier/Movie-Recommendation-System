@@ -1,0 +1,4 @@
+confluent_kafka
+influxdb_client
+pandas
+numpy

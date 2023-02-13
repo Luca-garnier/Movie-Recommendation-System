@@ -1,0 +1,74 @@
+version: "3.5"
+
+services:
+  flask-api:
+    build:
+      context: .
+    restart: unless-stopped
+    container_name: flask-api
+    image: example-flask-api
+    ports:
+      - 8082:8082
+
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: node-exporter
+    restart: unless-stopped
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.rootfs=/rootfs'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
+    expose:
+      - 9100
+
+  example-prometheus:
+    image: prom/prometheus:latest
+    restart: unless-stopped
+    container_name: example-prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - .\monitoring\prometheus.yml:/etc/prometheus/prometheus.yml
+      - .\monitoring\rules.yml:/etc/prometheus/rules.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--web.enable-lifecycle'
+
+  example-grafana:
+    image: grafana/grafana:latest
+    restart: unless-stopped
+    user: "472"
+    container_name: example-grafana
+    depends_on:
+      - example-prometheus
+    ports:
+      - 3000:3000
+    volumes:
+      - .\monitoring\datasource.yml:/etc/grafana/provisioning/datasource.yml
+    env_file:
+      - .\monitoring\config.monitoring
+
+  alertmanager:
+    image: prom/alertmanager:v0.23.0
+    restart: unless-stopped
+    ports:
+      - "9093:9093"
+    volumes:
+      - .\monitoring\alertmanager:/config
+    command: --config.file=/config/alertmanager.yml --log.level=debug
+
+  online-monitoring:
+    build:
+      context: .
+      dockerfile: Dockerfile_2
+    restart: unless-stopped
+    container_name: online-monitoring
+    image: online-monitoring-image
