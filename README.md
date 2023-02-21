@@ -1,4 +1,3 @@
-# Team 3
 [![CircleCI](https://circleci.com/gh/COMP599Fall2021/Team3/tree/main.svg?style=svg&circle-token=56868937fe456d5d5af870415f5ac826d7c984fe)](https://circleci.com/gh/COMP599Fall2021/Team3/tree/main)
 
 Steps to run the project on the server :
